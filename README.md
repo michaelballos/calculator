@@ -1,3 +1,7 @@
+# README
+
+A calculator project I am doing to learn react hooks. I styled it like the IOS calculator.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
