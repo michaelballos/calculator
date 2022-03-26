@@ -5,30 +5,8 @@ import Display from './components/Display';
 import './styles.css';
 
 const App = () => {
-  const btnVal = [
-    'C',
-    '+/-',
-    '%',
-    '÷',
-    7,
-    8,
-    9,
-    '*',
-    4,
-    5,
-    6,
-    '-',
-    1,
-    2,
-    3,
-    '+',
-    0,
-    '.',
-    '=',
-  ];
-
   const controls = {
-    'C': {
+    C: {
       label: '',
       variant: 'other',
     },
@@ -106,21 +84,19 @@ const App = () => {
     },
   };
 
-const label = Object.keys(controls);
-console.log('Label:', label);
-
-  return (
-    <CalcContainer>
+return (
+  <>
+    <CalcContainer controls={controls}>
       <Display />
       <BtnContainer>
-
-      </BtnContainer> 
+        <Button />
+      </BtnContainer>
     </CalcContainer>
-  );
-};
+    </>
+  )
+}
 
 /*
-
 <CalcContainer>
   <BtnContainer>
     {btnVal.map(({label, variant}, index) => (
@@ -133,6 +109,4 @@ console.log('Label:', label);
 </CalcContainer>
 */
 
-export default App; 
-
-
+export default App;
