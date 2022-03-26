@@ -1,48 +1,138 @@
+import CalcContainer from './components/CalcContainer';
+import BtnContainer from './components/BtnContainer';
+import Button from './components/Button';
+import Display from './components/Display';
 import './styles.css';
-import {useState} from 'react';
 
+const App = () => {
+  const btnVal = [
+    'C',
+    '+/-',
+    '%',
+    '÷',
+    7,
+    8,
+    9,
+    '*',
+    4,
+    5,
+    6,
+    '-',
+    1,
+    2,
+    3,
+    '+',
+    0,
+    '.',
+    '=',
+  ];
 
+  const controls = {
+    'C': {
+      label: '',
+      variant: 'other',
+    },
+    '+/-': {
+      label: '',
+      variant: 'operator',
+    },
+    '%': {
+      label: '',
+      variant: 'operator',
+    },
+    '÷': {
+      label: '',
+      variant: 'operator',
+    },
+    '*': {
+      label: '',
+      variant: 'operator',
+    },
+    '-': {
+      label: '',
+      variant: 'operator',
+    },
+    '+': {
+      label: '',
+      variant: 'operator',
+    },
+    '.': {
+      label: '',
+      variant: 'operator',
+    },
+    '=': {
+      label: '',
+      variant: 'operator',
+    },
+    7: {
+      label: '',
+      variant: 'number',
+    },
+    8: {
+      label: '',
+      variant: 'number',
+    },
+    9: {
+      label: '',
+      variant: 'number',
+    },
+    4: {
+      label: '',
+      variant: 'number',
+    },
+    5: {
+      label: '',
+      variant: 'number',
+    },
+    6: {
+      label: '',
+      variant: 'number',
+    },
+    1: {
+      label: '',
+      variant: 'number',
+    },
+    2: {
+      label: '',
+      variant: 'number',
+    },
+    3: {
+      label: '',
+      variant: 'number',
+    },
+    0: {
+      label: '',
+      variant: 'number',
+    },
+  };
 
-
-
-
-
-function App() {
-const [currentDisplay, setDisplay] = useState(0);
-}
+const label = Object.keys(controls);
+console.log('Label:', label);
 
   return (
-    <div className="calc-grid">
-      <div className="display">
-        <div className="previousDisplay"></div>
-        <div className="currentDisplay">{currentDisplay}</div>
-      </div>
+    <CalcContainer>
+      <Display />
+      <BtnContainer>
 
-      <div id="specialInput">
+      </BtnContainer> 
+    </CalcContainer>
+  );
+};
 
-      </div>
+/*
 
-        <button className="grey" onClick="setDisplay()">AC</button>
-        <button className="grey">+/-</button>
-        <button className="grey">%</button>
-        <button className="yellow">÷</button>
-        <button className="dark">7</button>
-        <button className="dark">8</button>
-        <button className="dark">9</button>
-        <button className="yellow">*</button>
-        <button className="dark">4</button>
-        <button className="dark">5</button>
-        <button className="dark">6</button>
-        <button className="yellow">-</button>
-        <button className="dark">1</button>
-        <button className="dark">2</button>
-        <button className="dark">3</button>
-        <button className="yellow">+</button>
-        <button className="spanTwo">0</button>
-        <button className="dark">.</button>
-        <button className="yellow">=</button>
-    </div>
-  )
-}
+<CalcContainer>
+  <BtnContainer>
+    {btnVal.map(({label, variant}, index) => (
+      <Button
+        label={label}
+        variant={variant}
+      />
+    ))}
+  </BtnContainer>
+</CalcContainer>
+*/
 
-export default App;
+export default App; 
+
+
