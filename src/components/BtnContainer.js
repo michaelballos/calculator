@@ -2,33 +2,42 @@ import './BtnContainer';
 import Button from './Button';
 import { useMemo } from 'react';
 
-const BtnContainer = ({ displayVal, setDisplayVal, controls }) => {
+const BtnContainer = ({ display, setDisplay, controls }) => {
+ const btnInterface = [
+    'C', '+/-', '%', '/',
+    7, 8, 9, '*',
+    4, 5, 6, '-',
+    1, 2, 3, '+',
+    0, '.', '=',
+  ];
+
+
+   
 
   /**
    * List of each button's index in object controls
    */
   const buttonKeys = Object.keys(controls)
-  console.log('button keys:',  buttonKeys);
-
   /**
    * Generated Button components using controls object
    */
   const buttonComponents = useMemo(() => {
-
     return buttonKeys.map(key => {  
-      const {label, variant} = controls[key];
+      const {label, variant, integer} = controls[key];
+
+
         return <Button
-          displayVal={displayVal}
-          setDisplayVal={setDisplayVal}
+          display={display}
+          setDisplay={setDisplay}
           label={label}
           variant={variant}
           key={key}
           btnValue={key}
+          integer={integer}
         />
     })
 }) 
 
-console.log('button components:', buttonComponents);
 
   return (
     <>

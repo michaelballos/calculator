@@ -4,13 +4,13 @@ import BtnContainer from './BtnContainer.js';
 import {useState} from 'react';
 
 const CalcContainer =  ({controls}) => {
-  const [displayVal, setDisplayVal] = useState(() => 0);
+  const [display, setDisplay] = useState('');
 
   return (
   <> 
   <div className="calcContainer">
-  <Display display={displayVal} setDisplay={setDisplayVal} />
-  <BtnContainer controls={controls} display={displayVal} setDisplay={setDisplayVal} />
+  <Display display={display} setDisplay={setDisplay} />
+  <BtnContainer controls={controls} display={display} setDisplay={setDisplay} />
   </div>
   </>
   )
