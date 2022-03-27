@@ -1,6 +1,5 @@
-import BtnContainer from './BtnContainer';
-import { useCallback, } from 'react';
 import './Button';
+import { useCallback, } from 'react';
 
 const Button = ({
   /**
@@ -15,17 +14,28 @@ const Button = ({
 
   /**
    * The label of the button
-   * 
+   */
+  label,
+
+  /**
    * The variant of the button
    */
-  buttonComponents
+  variant,
+
+  /**
+   * The value of the button
+   */
+  btnValue,
+  
 }) => {
 
-    /**
   const handleClick = useCallback(() => {
+    /**
      * TODO: Implement the button's behavior
      * On a per variant basis ( this is good starter )
-    setDisplayVal(label);
+     */
+    return variant === 'number' || 'operator' ? setDisplayVal(displayVal + btnValue) : setDisplayVal(0);
+    
   }, [label, setDisplayVal]);
 
   return (
@@ -33,11 +43,10 @@ const Button = ({
       className={`btn btn-${variant}`}
       onClick={handleClick}
     >
-      {label}
+      {btnValue}
     </button>
   );
-**/
-return null;
+
 };
 
 export default Button;

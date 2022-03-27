@@ -8,25 +8,32 @@ const BtnContainer = ({ displayVal, setDisplayVal, controls }) => {
    * List of each button's index in object controls
    */
   const buttonKeys = Object.keys(controls)
+  console.log('button keys:',  buttonKeys);
 
   /**
    * Generated Button components using controls object
    */
   const buttonComponents = useMemo(() => {
-    return buttonKeys.map(key => {
-      const variant = controls[key].variant;
-      const label = controls[key].label;
-      console.log(variant, label);
-      return variant, label;
+
+    return buttonKeys.map(key => {  
+      const {label, variant} = controls[key];
+        return <Button
+          displayVal={displayVal}
+          setDisplayVal={setDisplayVal}
+          label={label}
+          variant={variant}
+          key={key}
+          btnValue={key}
+        />
     })
-})
- 
-        
+}) 
+
+console.log('button components:', buttonComponents);
 
   return (
     <>
       <div className="btnContainer">
-        <Button displayVal={displayVal} setDisplayVal={setDisplayVal} buttonComponents={buttonComponents} />
+        {buttonComponents}
       </div>
     </>
   );

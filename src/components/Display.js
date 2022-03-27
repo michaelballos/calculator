@@ -1,5 +1,5 @@
-import { useState } from 'react'; 
 import BtnContainer from './BtnContainer';
+import { useState } from 'react'; 
 
 const Display = ({display, setDisplay}) => {
 
