@@ -1,99 +1,83 @@
 import './Button.css';
-import {  useCallback, } from 'react';
+import { useCallback } from 'react';
 
+/**
+ * @param {Props} display - total value displayed
+ * @param {Props} setDisplay - setter function for total value
+ * @param {Props} variant - type of button 
+ * @param {Props} btnValue - value of button when clicked
+ * @param {Props} calc - current calculation value 
+ * @param {Props} setCalc - setter function for current calculation value
+ * 
+ * @returns {JSX.Element} Button component
+ */
 const Button = ({
-  /**
-   * The value of the calculator's display
-   */
   display,
-
-  /**
-   * The function to update the calculator's display
-   */
   setDisplay,
-
-  /**
-   * The variant of the button
-   */
   variant,
-
-  /**
-   * The value of the button
-   */
   btnValue,
- 
-  /**
-   * The integer value of the button
-   */
-  integer,
-
-  /**
-   * The calculator's current value 
-   */
   calc,
-
-  /**
-   * The function to update the calculator's calculation display
-   */
   setCalc,
-
 }) => {
 
-  const handleNum = () => { 
-      const operators = ['+', '-', '*', '/', '%'];
+  /**
+   * function to handle calculator operator rules 
+   */
+  const handleNum = () => {
+    const operators = ['+', '-', '*', '/', '%'];
 
-      if (
-        operators.includes(btnValue) && calc === '' ||
-        operators.includes(btnValue) && operators.includes(calc.slice(-1))
-      ) {
-        return;
-      }
-
-
-   /** 
+    /**
      * prevents display of operators twice in a row or when there are no numbers in the display
+     * @returns
      */
-  
-      if (!operators.includes(btnValue)) {
-        setDisplay(eval(calc + btnValue).toString());
-      }
-}
+    if (
+      (operators.includes(btnValue) && calc === '') ||
+      (operators.includes(btnValue) && operators.includes(calc.slice(-1)))
+    ) {
+      return;
+    }
 
+    /**
+     * Sets total value of current calculation  
+     */
+    if (!operators.includes(btnValue)) {
+      setDisplay(eval(calc + btnValue).toString());
+    }
+  };
+
+  /**
+   * function to handle button click of equal sign 
+   */
   const calculate = () => {
-    setDisplay('');
-    setCalc(eval(calc).toString());
-};
+    setDisplay(eval(calc).toString());
+    setCalc('');
+  };
 
-    
-const handleClick = useCallback(() => {
-  
-      setCalc(calc + btnValue);
+  /**
+   * callback function that handles button click by variant type
+  */
+  const handleClick = useCallback(() => {
+    setCalc(calc + btnValue);
 
-      if (variant === 'number' || variant === 'operator') {
-        handleNum();
-      } else if (variant === 'operate') {
-        calculate();
-      } else if (variant === 'invert') {
-        setCalc(calc * -1);
-      } else if (variant === 'clear') {
-        setDisplay('');
-        setCalc('');
-      } else if (variant === 'percent') {
-        setCalc(calc / 100);
-      }
+    if (variant === 'number' || variant === 'operator') {
+      handleNum();
+    } else if (variant === 'operate') {
+      calculate();
+    } else if (variant === 'invert') {
+      setCalc(calc * -1);
+    } else if (variant === 'clear') {
+      setDisplay('');
+      setCalc('');
+    } else if (variant === 'percent') {
+      setCalc(calc / 100);
+    }
+  }, [calc, display]);
 
-  }, [integer, calc, display]);
-
-
-
-     return (
-    <button
-      className={`btn btn-${variant}`}
-      onClick={handleClick}
-    >
+  return (
+    <button className={`btn btn-${variant}`} onClick={handleClick}>
       {btnValue}
-    </button>    
-    )
+    </button>
+  );
 };
 
 export default Button;

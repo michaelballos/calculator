@@ -4,9 +4,17 @@ import Button from './components/Button';
 import Display from './components/Display';
 import './index.css';
 
+
+/**
+ * @returns {JSX.Element} App component
+ */
 const App = () => {
+  /**
+   * keys have to match content of btnInterface in BtnContainer component
+   * Invalid match will ommit UI
+   */
   const controls = {
-    C: {
+    AC: {
       variant: 'clear',
     },
     '+/-': {
@@ -63,33 +71,18 @@ const App = () => {
     0: {
       variant: 'number',
     },
-      };
- 
-  
+  };
 
-return (
-  <>
-    <CalcContainer controls={controls}>
-      <Display />
-      <BtnContainer>
-        <Button />
-      </BtnContainer>
-    </CalcContainer>
+  return (
+    <>
+      <CalcContainer controls={controls}>
+        <Display />
+        <BtnContainer>
+          <Button />
+        </BtnContainer>
+      </CalcContainer>
     </>
-  )
-}
-
-/*
-<CalcContainer>
-  <BtnContainer>
-    {btnVal.map(({label, variant}, index) => (
-      <Button
-        label={label}
-        variant={variant}
-      />
-    ))}
-  </BtnContainer>
-</CalcContainer>
-*/
+  );
+};
 
 export default App;

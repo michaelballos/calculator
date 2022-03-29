@@ -2,34 +2,45 @@ import './BtnContainer.css';
 import Button from './Button';
 import { useMemo } from 'react';
 
-const BtnContainer = ({ display, setDisplay, controls, calc, setCalc }) => {
 
-  
-
+/**
+ * @param {Props} display - total value
+ * @param {Props} setDisplay - setter for total value
+ * @param {Props} controls - Object of buttons
+ * @param {Props} calc - current calculation value
+ * @param {Props} setCalc - setter for current calculation value
+ *  
+ * @returns {JSX.Element} Creates componenets and container for buttons 
+ */
+const BtnContainer = ({
+  display,
+  setDisplay,
+  controls,
+  calc,
+  setCalc,
+}) => {
   /**
-   * List of each button's index in object controls
-   */
-  const buttonKeys = Object.keys(controls);
-
-  /**
-   * Generated Button components using controls object
-   */
-
+   *  Array elements have to match keys of controls object in App
+   *  Invalid match will ommit UI
+   **/
   const btnInterface = [
-   'C', '+/-', '%', '/',
+    'AC', '+/-', '%', '/',
     7, 8, 9, '*',
     4, 5, 6, '-',
     1, 2, 3, '+',
     0, '.', '=',
-  ]
-  
+  ];
 
-
+  /**
+   * Generates Button Component props to be passed to Button component
+   * @returns {JSX.Element} Button components
+   */
   const buttonComponents = useMemo(() => {
-    return btnInterface.map((key, index) => {
+    return btnInterface.map((key) => {
       const variant = controls[key].variant;
 
-          return <Button
+      return (
+        <Button
           display={display}
           setDisplay={setDisplay}
           variant={variant}
@@ -38,17 +49,17 @@ const BtnContainer = ({ display, setDisplay, controls, calc, setCalc }) => {
           calc={calc}
           setCalc={setCalc}
         />
-     })
-
-}) 
+      );
+    });
+  });
 
   return (
     <>
-  <div className="btnContainer">
-    {buttonComponents}
-    </div>
-  </>
- );
+      <div className="btnContainer">
+        {buttonComponents}
+      </div>
+    </>
+  );
 };
 
 export default BtnContainer;
