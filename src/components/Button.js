@@ -1,5 +1,5 @@
-import './Button';
-import { useState, useEffect, useCallback, } from 'react';
+import './Button.css';
+import {  useCallback, } from 'react';
 
 const Button = ({
   /**
@@ -11,11 +11,6 @@ const Button = ({
    * The function to update the calculator's display
    */
   setDisplay,
-
-  /**
-   * The label of the button
-   */
-  label,
 
   /**
    * The variant of the button
@@ -41,6 +36,8 @@ const Button = ({
    * The function to update the calculator's calculation display
    */
   setCalc,
+
+  btnLabel,
 }) => {
 
   const handleNum = () => { 
@@ -80,6 +77,8 @@ const handleClick = useCallback(() => {
       }
 
   }, [integer, calc, display]);
+
+
 
      return (
     <button

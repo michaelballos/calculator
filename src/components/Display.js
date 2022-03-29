@@ -1,4 +1,4 @@
-import BtnContainer from './BtnContainer';
+import './Display.css';
 
 const Display = ({ display, calc}) => {
   return (

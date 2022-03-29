@@ -1,7 +1,6 @@
 import './CalcContainer.css';
 import Display from './Display.js';
 import BtnContainer from './BtnContainer.js';
-import Button from './Button';
 import {useState} from 'react';
 
 const CalcContainer =  ({controls}) => {
