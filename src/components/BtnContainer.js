@@ -51,7 +51,7 @@ const BtnContainer = ({
         />
       );
     }); 
-  }, [display, setDisplay, controls, calc, setCalc]);
+  }, [btnInterface, display, setDisplay, controls, calc, setCalc]);
 
   return (
     <>

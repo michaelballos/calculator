@@ -42,7 +42,7 @@ const Button = ({
     } else if (variant === 'percent') {
       setCalc(calc / 100);
     }
-  }, [setCalc, calc, setDisplay, variant, display]);
+  }, [setCalc, calc, setDisplay, variant, btnValue, display]);
 
   return (
     <button className={`btn ${variant} btn-${btnValue}`} onClick={handleClick}>
