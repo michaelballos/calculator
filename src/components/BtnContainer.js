@@ -50,8 +50,8 @@ const BtnContainer = ({
           setCalc={setCalc}
         />
       );
-    });
-  });
+    }); 
+  }, [display, setDisplay, controls, calc, setCalc]);
 
   return (
     <>

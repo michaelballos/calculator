@@ -21,60 +21,31 @@ const Button = ({
 }) => {
 
   /**
-   * function to handle calculator operator rules 
-   */
-  const handleNum = () => {
-    const operators = ['+', '-', '*', '/', '%'];
-
-    /**
-     * prevents display of operators twice in a row or when there are no numbers in the display
-     * @returns
-     */
-    if (
-      (operators.includes(btnValue) && calc === '') ||
-      (operators.includes(btnValue) && operators.includes(calc.slice(-1)))
-    ) {
-      return;
-    }
-
-    /**
-     * Sets total value of current calculation  
-     */
-    if (!operators.includes(btnValue)) {
-      setDisplay(eval(calc + btnValue).toString());
-    }
-  };
-
-  /**
-   * function to handle button click of equal sign 
-   */
-  const calculate = () => {
-    setDisplay(eval(calc).toString());
-    setCalc('');
-  };
-
-  /**
    * callback function that handles button click by variant type
   */
   const handleClick = useCallback(() => {
-    setCalc(calc + btnValue);
 
     if (variant === 'number' || variant === 'operator') {
-      handleNum();
+      setCalc(calc + btnValue);
+
     } else if (variant === 'operate') {
-      calculate();
+      setDisplay(eval(calc).toString());
+      setCalc('');
+
     } else if (variant === 'invert') {
       setCalc(calc * -1);
+
     } else if (variant === 'clear') {
       setDisplay('');
       setCalc('');
+
     } else if (variant === 'percent') {
       setCalc(calc / 100);
     }
-  }, [calc, display]);
+  }, [setCalc, calc, setDisplay, variant, display]);
 
   return (
-    <button className={`btn btn-${btnValue}`} onClick={handleClick}>
+    <button className={`btn ${variant} btn-${btnValue}`} onClick={handleClick}>
       {btnValue}
     </button>
   );

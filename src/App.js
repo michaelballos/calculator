@@ -2,7 +2,7 @@ import CalcContainer from './components/CalcContainer';
 import BtnContainer from './components/BtnContainer';
 import Button from './components/Button';
 import Display from './components/Display';
-import './index.css';
+import './App.css';
 
 
 /**
