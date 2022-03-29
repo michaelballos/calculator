@@ -23,6 +23,7 @@ const BtnContainer = ({
    *  Array elements have to match keys of controls object in App
    *  Invalid match will ommit UI
    **/
+
   const btnInterface = [
     'AC', '+/-', '%', '/',
     7, 8, 9, '*',
@@ -30,16 +31,16 @@ const BtnContainer = ({
     1, 2, 3, '+',
     0, '.', '=',
   ];
-
+ 
   /**
    * Generates Button Component props to be passed to Button component
    * @returns {JSX.Element} Button components
    */
   const buttonComponents = useMemo(() => {
+   
     return btnInterface.map((key) => {
       const variant = controls[key].variant;
-
-      return (
+     return (
         <Button
           display={display}
           setDisplay={setDisplay}
