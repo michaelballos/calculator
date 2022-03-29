@@ -27,8 +27,7 @@ const BtnContainer = ({ display, setDisplay, controls, calc, setCalc }) => {
 
   const buttonComponents = useMemo(() => {
     return btnInterface.map((key, index) => {
-      const buttonKey = buttonKeys[index];
-      const { variant } = controls[buttonKey];
+      const variant = controls[key].variant;
 
           return <Button
           display={display}

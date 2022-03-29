@@ -6,7 +6,7 @@ import './index.css';
 
 const App = () => {
   const controls = {
-    AC: {
+    C: {
       variant: 'clear',
     },
     '+/-': {

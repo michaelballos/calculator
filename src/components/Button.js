@@ -37,7 +37,6 @@ const Button = ({
    */
   setCalc,
 
-  btnLabel,
 }) => {
 
   const handleNum = () => { 
@@ -52,7 +51,6 @@ const Button = ({
         return;
       }
 
-      setCalc(calc + btnValue);
    /** 
      * prevents display of operators twice in a row or when there are no numbers in the display
      */
@@ -70,10 +68,17 @@ const Button = ({
     
 const handleClick = useCallback(() => {
   
+      setCalc(calc + btnValue);
+
       if (variant === 'number' || variant === 'operator') {
         handleNum();
       } else if (variant === 'operate') {
         calculate();
+      } else if (variant === 'invert') {
+        setCalc(calc * -1);
+      } else if (variant === 'clear') {
+        setDisplay('');
+        setCalc('');
       }
 
   }, [integer, calc, display]);
