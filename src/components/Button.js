@@ -74,7 +74,7 @@ const Button = ({
   }, [calc, display]);
 
   return (
-    <button className={`btn btn-${variant}`} onClick={handleClick}>
+    <button className={`btn btn-${btnValue}`} onClick={handleClick}>
       {btnValue}
     </button>
   );

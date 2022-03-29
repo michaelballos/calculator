@@ -3,16 +3,35 @@ button {
   justify-content: center;
   align-items: center;
 
-  margin-left: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: .5rem;
   border: 1px solid #ccc;
   border-radius: 3rem;
   width: 6rem;
   height: 6rem;
 
-  color: rgb(0, 0, 0);
+  background-color:rgb(55, 55, 55);
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 30px;
   font-weight: bold;
-  padding: 5px 10px;
   text-decoration: none;
+  border: 1px;
+  border-color: transparent;
+}
+
+.btn-0 {
+  grid-column: span 2;
+
+  width: 13rem;
+  margin-right: 5px;
+}
+
+button:nth-child(-n+3) {
+  background-color: rgb(146, 146, 146);
+}
+
+button:nth-child(4n+4), button:nth-child(18), button:nth-child(19) {
+  background-color: rgb(255, 167, 4);
 }

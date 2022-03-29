@@ -11,6 +11,14 @@
 
 
 .display {
-  font-size: 2rem;
 
+  font-size: 3rem;
+}
+
+.displayCalc {
+
+  padding-top: 3rem;
+  padding-left: 2rem;
+
+  font-size: 2rem; 
 }

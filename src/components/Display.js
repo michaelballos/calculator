@@ -11,8 +11,8 @@ const Display = ({
   calc }) => {
   return (
     <>
-      <div className="display">{display}</div>
       <div className="displayCalc">{calc}</div>
+      <div className="display">{display}</div>
     </>
   );
 };

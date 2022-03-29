@@ -1,12 +1,13 @@
 .calcContainer {
+  position:absolute;
   display: grid;
   grid-template-rows: 15% 15% auto;
 
-  margin: 5rem;
-  width: 40rem;
-  height: 60rem;
+  
+  width: 25rem;
+  height: 40rem;
   border-radius: 2rem;
 
-  background-color: #9d5454;
+  background-color: #000000;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
