@@ -33,13 +33,14 @@ const Button = ({
   integer,
 
   /**
-   * The function to calculate the display
+   * The calculator's current value 
    */
   calc,
 
+  /**
+   * The function to update the calculator's calculation display
+   */
   setCalc,
-
-  operators,
 }) => {
 
   const handleNum = () => { 
