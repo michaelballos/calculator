@@ -13,7 +13,7 @@ const App = () => {
       variant: 'invert',
     },
     '%': {
-      variant: 'operator',
+      variant: 'percent',
     },
     '/': {
       variant: 'operator',

@@ -40,16 +40,15 @@ const Button = ({
 }) => {
 
   const handleNum = () => { 
-
       const operators = ['+', '-', '*', '/', '%'];
 
       if (
         operators.includes(btnValue) && calc === '' ||
-        operators.includes(btnValue) && operators.includes(calc.slice(-1)
-        )
+        operators.includes(btnValue) && operators.includes(calc.slice(-1))
       ) {
         return;
       }
+
 
    /** 
      * prevents display of operators twice in a row or when there are no numbers in the display
@@ -79,6 +78,8 @@ const handleClick = useCallback(() => {
       } else if (variant === 'clear') {
         setDisplay('');
         setCalc('');
+      } else if (variant === 'percent') {
+        setCalc(calc / 100);
       }
 
   }, [integer, calc, display]);
