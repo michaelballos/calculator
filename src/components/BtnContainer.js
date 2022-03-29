@@ -2,7 +2,8 @@ import './BtnContainer';
 import Button from './Button';
 import { useMemo } from 'react';
 
-const BtnContainer = ({ display, setDisplay, controls }) => {
+const BtnContainer = ({ display, setDisplay, controls, calc, setCalc }) => {
+  /*
  const btnInterface = [
     'C', '+/-', '%', '/',
     7, 8, 9, '*',
@@ -10,20 +11,23 @@ const BtnContainer = ({ display, setDisplay, controls }) => {
     1, 2, 3, '+',
     0, '.', '=',
   ];
+*/
 
 
-   
 
   /**
    * List of each button's index in object controls
    */
-  const buttonKeys = Object.keys(controls)
+  const buttonKeys = Object.keys(controls);
   /**
    * Generated Button components using controls object
    */
   const buttonComponents = useMemo(() => {
     return buttonKeys.map(key => {  
+
       const {label, variant, integer} = controls[key];
+
+
 
 
         return <Button
@@ -34,18 +38,19 @@ const BtnContainer = ({ display, setDisplay, controls }) => {
           key={key}
           btnValue={key}
           integer={integer}
+          calc={calc}
+          setCalc={setCalc}
         />
     })
 }) 
 
-
   return (
     <>
-      <div className="btnContainer">
-        {buttonComponents}
-      </div>
-    </>
-  );
+  <div className="btnContainer">
+    {buttonComponents}
+    </div>
+  </>
+ );
 };
 
 export default BtnContainer;

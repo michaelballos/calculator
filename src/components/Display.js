@@ -1,11 +1,11 @@
 import BtnContainer from './BtnContainer';
-import { useState } from 'react'; 
 
-const Display = ({display, setDisplay}) => {
-
+const Display = ({ display, calc}) => {
   return (
-  <div className="display">{display}</div>
-  )
+    <>
+      <div className="display">{display}</div>
+      <div className="displayCalc">{calc}</div>
+    </>
+  );
 };
- 
 export default Display;

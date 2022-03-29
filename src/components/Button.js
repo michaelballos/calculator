@@ -1,6 +1,5 @@
 import './Button';
-import { useCallback, } from 'react';
-import { clear } from '@testing-library/user-event/dist/clear';
+import { useState, useEffect, useCallback, } from 'react';
 
 const Button = ({
   /**
@@ -31,45 +30,64 @@ const Button = ({
   /**
    * The integer value of the button
    */
-  integer
+  integer,
+
+  /**
+   * The function to calculate the display
+   */
+  calc,
+
+  setCalc,
+
+  operators,
 }) => {
-  
 
+  const handleNum = () => { 
 
+      const operators = ['+', '-', '*', '/', '%'];
 
+      if (
+        operators.includes(btnValue) && calc === '' ||
+        operators.includes(btnValue) && operators.includes(calc.slice(-1)
+        )
+      ) {
+        return;
+      }
 
-  const handleClick = useCallback(() => {
-    /**
-     * TODO: Implement the button's behavior
-     * On a per variant basis ( this is good starter )
+      setCalc(calc + btnValue);
+   /** 
+     * prevents display of operators twice in a row or when there are no numbers in the display
      */
+  
+      if (!operators.includes(btnValue)) {
+        setDisplay(eval(calc + btnValue).toString());
+      }
+}
+
+  const calculate = () => {
+    setDisplay('');
+    setCalc(eval(calc).toString());
+};
+
     
+const handleClick = useCallback(() => {
+  
+      if (variant === 'number' || variant === 'operator') {
+        handleNum();
+      } else if (variant === 'operate') {
+        calculate();
+      }
 
+  }, [integer, calc, display]);
 
-    if (variant === 'number') {
-      setDisplay(display + integer);
-    } else if (variant === 'operator') {
-      setDisplay(display + btnValue);
-    } else if (variant === 'operate') {
-      const input = display.split(/[%*+'/-]/);
-      const operate = display.split(/[0-9]/); 
-      const result = input[0] + operate[1] + input[1];
-     console.log(input, operate, result); 
-    }
-
-
-  }, [integer, display, setDisplay]);
-
-
-  return (
+     return (
     <button
       className={`btn btn-${variant}`}
       onClick={handleClick}
     >
       {btnValue}
-    </button>
-  );
-
+    </button>    
+    )
 };
 
 export default Button;
